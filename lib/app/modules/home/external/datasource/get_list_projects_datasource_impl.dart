@@ -1,3 +1,4 @@
+import 'package:my_portfolio/app/core/contracts/errors/errors.dart';
 import 'package:my_portfolio/app/core/shared/services/projects_service.dart';
 import 'package:my_portfolio/app/modules/home/domain/entities/project_entity.dart';
 import 'package:my_portfolio/app/modules/home/external/mapper/project_mapper.dart';
@@ -12,9 +13,15 @@ class GetListProjectsDatasourceimpl implements GetListProjectsDatasource {
 
   @override
   Future<List<ProjectEntity>> getListProjects() async {
-    final result = await _projectsService.getProjects();
-    final listProjectsEntity =
-        result.map((e) => ProjectMapper.fromJson(e)).toList();
-    return listProjectsEntity;
+    try {
+      final result = await _projectsService.getProjects();
+      final listProjectsEntity =
+          result.map((e) => ProjectMapper.fromJson(e)).toList();
+      return listProjectsEntity;
+    } on IError {
+      rethrow;
+    } catch (e, s) {
+      throw DataSourceError('Datasource Error', s);
+    }
   }
 }
