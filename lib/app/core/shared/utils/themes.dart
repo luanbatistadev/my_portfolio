@@ -5,7 +5,7 @@ class Themes {
     primarySwatch: Colors.blue,
     primaryColor: const Color.fromARGB(255, 255, 255, 255),
     scaffoldBackgroundColor: const Color.fromARGB(255, 0, 0, 0),
-  
+    fontFamily: 'EB Garamond',
     appBarTheme: const AppBarTheme(
       color: Color.fromARGB(255, 7, 11, 48),
       elevation: 0,
@@ -15,7 +15,6 @@ class Themes {
       secondary: const Color.fromARGB(255, 18, 18, 43),
       secondaryContainer: Colors.black,
       tertiary: Colors.grey,
-      
     ),
   );
 }
