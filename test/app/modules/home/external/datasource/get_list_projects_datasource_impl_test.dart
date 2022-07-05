@@ -19,10 +19,25 @@ void main() {
     expect(result, completes);
   });
 
-  test('deve retornar um Erro de Mapper quando receber um json invalido Erro: MapperModelError',
+  test(
+      'deve retornar um Erro de Mapper quando receber um json invalido Erro: MapperModelError',
       () {
     when(() => service.getProjects()).thenAnswer(
       (_) async => jsonResponseInvalid,
+    );
+
+    final result = datasource.getListProjects();
+
+    expect(
+      result,
+      throwsA(isA<IError>()),
+    );
+  });
+  test(
+      'deve retornar um Erro de datasource quando receber um json invalido Erro: DatasourceError',
+      () {
+    when(() => service.getProjects()).thenThrow(
+      (_) async => DataSourceError('message', StackTrace.current),
     );
 
     final result = datasource.getListProjects();
