@@ -34,7 +34,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     final bool isNotMinorHeight = MediaQuery.of(context).size.width > 780;
-    print(MediaQuery.of(context).size.width);
+
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(25).copyWith(bottom: 0),
@@ -68,7 +68,7 @@ class _HomePageState extends State<HomePage> {
                           height: 30,
                         ),
                         SelectableText(
-                          'Software Engineer',
+                          'Flutter Specialist',
                           style: TextStyle(
                             fontSize: 22,
                             color: Theme.of(context).primaryColor,
@@ -93,7 +93,7 @@ class _HomePageState extends State<HomePage> {
               SizedBox(
                 width: MediaQuery.of(context).size.width * 0.5,
                 child: SelectableText(
-                  'I am a software engineer with a passion for creating beautiful and functional software. I am currently working as a software engineer at a startup called "FTeam - Flutter Specialist".',
+                  'I am a Flutter specialist with a passion for creating beautiful and functional software. I am currently working as a Flutter Specialist at a startup called "FTeam - Flutter Specialist".',
                   style: TextStyle(
                     fontSize: 12,
                     color: Theme.of(context).primaryColor,
